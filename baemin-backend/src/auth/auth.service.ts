@@ -1,7 +1,5 @@
+/* eslint-disable prettier/prettier */
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { CreateAuthDto } from './dto/create-auth.dto';
-import { UpdateAuthDto } from './dto/update-auth.dto';
-import { PrismaClient } from '@prisma/client';
 import { JwtService } from '@nestjs/jwt';
 import * as bcrypt from 'bcryptjs';
 import { PrismaService } from 'src/prisma/prisma.service';
@@ -20,7 +18,7 @@ export class AuthService {
     const user = await this.prisma.user.create({
       data: {
         email,
-        password : hashedPassword,
+        password: hashedPassword,
         name,
         phone,
       },

@@ -1,0 +1,242 @@
+{
+	"info": {
+		"_postman_id": "fde8e56f-a2d5-4b63-a286-d0a83fed00fb",
+		"name": "NodeAds",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "29809892"
+	},
+	"item": [
+		{
+			"name": "Đăng ký",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"testuser@example.com\",\r\n  \"password\": \"password123\",\r\n  \"name\": \"Test User\",\r\n  \"phone\": \"0123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/signUp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"signUp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Đăng nhập",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"testuser@example.com\",\r\n  \"password\": \"password123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/auth/signIn",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"auth",
+						"signIn"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy chi tiết đơn hàng",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/orders/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy danh mục món ăn",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/food-item/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"food-item",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Tạo đơn hàng",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJSUzI1NiIsImtpZCI6ImM4OGQ4MDlmNGRiOTQzZGY1M2RhN2FjY2ZkNDc3NjRkMDViYTM5MWYiLCJ0eXAiOiJKV1QifQ.eyJhdWQiOiJodHRwczovL3Rlc3Qtc2VydmljZS0xMDQwMjkwOTM4ODY0LnVzLWNlbnRyYWwxLnJ1bi5hcHAiLCJhenAiOiIxMTc3NjM3Nzk0MTcyMTk3OTk1NTUiLCJleHAiOjE3Mjk5MjI2OTIsImlhdCI6MTcyOTkxOTA5MiwiaXNzIjoiaHR0cHM6Ly9hY2NvdW50cy5nb29nbGUuY29tIiwic3ViIjoiMTE3NzYzNzc5NDE3MjE5Nzk5NTU1In0.W1ysNDCbO8L3bQRymiwFrq_pUI_0RHyYLsACQH-66WpG8-SJ6VZK52gOyHl9EgTfQBAVM7KHUs7Dp2mIU_-mjlmZleJN4QP5F5-0iP4FyaPLxVZAcHUJ9NPrE7uMLa0WcecgOlRg8Cbb4GEwjnPsAAup-WNlc6_yCx6DfYkgIN0m-O1jRQNpQ7IsMhdIiwVhRZObveoEBpNyk5PtW1-8FvS9AMXtPSX66AAXANUcB8tXs2WCHa86y5X7l6PPzSprcIIiix2lSdezJArQ1RJ-zxzP7rRq-CP-1RgncL0h2hVssgCnDxK6ZEYHhbgbbnEnARRXHrrgInPR1effCVzHsQ",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"foodItemId\": 1,\r\n      \"quantity\": 2\r\n    },\r\n    {\r\n      \"foodItemId\": 2,\r\n      \"quantity\": 3\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/order/create-order",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"order",
+						"create-order"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy danh sách món ăn (Phân trang, tìm kiếm)",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/food-items/categories",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"food-items",
+						"categories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy danh sách đơn hàng của người dùng",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "Bearer",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/orders\n",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"orders\n"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lấy thông tin chi tiết món ăn",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/food-item/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"food-item",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
